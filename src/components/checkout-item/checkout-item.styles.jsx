@@ -20,10 +20,13 @@ export const ImageContainer = styled.div`
 `;
 
 export const BaseSpan = styled.span`
+  display: flex;
+  justify-content: flex-start;
   width: 23%;
 `;
 
 export const Quantity = styled.span`
+  width: 23%;
   display: flex;
 `;
 
