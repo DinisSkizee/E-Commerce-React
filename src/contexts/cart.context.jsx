@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from 'react';
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -34,6 +34,9 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
       : cartItem
   );
 };
+
+const clearCartItem = (cartItems, cartItemToClear) =>
+  cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
 export const CartContext = createContext({
   isCartOpen: false,
@@ -78,10 +81,6 @@ export const CartProvider = ({ children }) => {
 
   const clearItemFromCart = (cartItemToClear) => {
     setCartItems(clearCartItem(cartItems, cartItemToClear));
-  };
-
-  const clearCartItem = (cartItems, cartItemToClear) => {
-    cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
   };
 
   const value = {
