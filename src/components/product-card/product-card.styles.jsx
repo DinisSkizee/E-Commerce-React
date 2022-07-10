@@ -23,7 +23,10 @@ export const ProductCardContainer = styled.div`
     top: 255px;
     display: none;
   }
-
+  img {
+    width: 100%;
+    min-height: 100%;
+  }
   &:hover {
     img {
       opacity: 0.8;
