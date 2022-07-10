@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useState, useReducer } from "react";
 
 import { createAction } from "../utils/reducer/reducer.utils";
 
@@ -37,8 +37,8 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
-export const CART_ACTION_TYPES = {
-  SET_CART_STATE: "SET_CART_STATE",
+const CART_ACTION_TYPES = {
+  SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
   SET_CART_ITEMS: "SET_CART_ITEMS",
   SET_CART_COUNT: "SET_CART_COUNT",
   SET_CART_TOTAL: "SET_CART_TOTAL",
@@ -51,7 +51,7 @@ const INITIAL_STATE = {
   cartTotal: 0,
 };
 
-export const cartReducer = (state, action) => {
+const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -81,7 +81,8 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [{ cartItems, cartCount, cartTotal }, dispatch] = useReducer(
+
+  const [{ cartCount, cartTotal, cartItems }, dispatch] = useReducer(
     cartReducer,
     INITIAL_STATE
   );
@@ -110,10 +111,12 @@ export const CartProvider = ({ children }) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
     updateCartItemsReducer(newCartItems);
   };
+
   const removeItemToCart = (cartItemToRemove) => {
     const newCartItems = removeCartItem(cartItems, cartItemToRemove);
     updateCartItemsReducer(newCartItems);
   };
+
   const clearItemFromCart = (cartItemToClear) => {
     const newCartItems = clearCartItem(cartItems, cartItemToClear);
     updateCartItemsReducer(newCartItems);
