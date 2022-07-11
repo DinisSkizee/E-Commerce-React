@@ -17,6 +17,7 @@ const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
 
   const dispatch = useDispatch();
+
   const cartItems = useSelector(selectCartItems);
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
