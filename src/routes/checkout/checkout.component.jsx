@@ -15,8 +15,8 @@ import {
 } from "./checkout.styles";
 
 const Checkout = () => {
-  const { cartItems } = useSelector(selectCartItems);
-  const { cartTotal } = useSelector(selectCartTotal);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
