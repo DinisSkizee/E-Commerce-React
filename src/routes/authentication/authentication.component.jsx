@@ -6,8 +6,8 @@ import { AuthenticationContainer } from "./authentication.styles";
 const Authentication = () => {
   return (
     <AuthenticationContainer>
-      <SignUpForm />
       <SignInForm />
+      <SignUpForm />
     </AuthenticationContainer>
   );
 };

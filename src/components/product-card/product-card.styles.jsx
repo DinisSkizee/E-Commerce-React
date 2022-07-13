@@ -48,7 +48,7 @@ export const ProductCardImg = styled.img`
   margin-bottom: 5px;
 `;
 
-export const ProductCardFooter = styled.div`
+export const Footer = styled.div`
   width: 100%;
   height: 5%;
   display: flex;
@@ -56,10 +56,10 @@ export const ProductCardFooter = styled.div`
   font-size: 18px;
 `;
 
-export const FooterName = styled.span`
+export const Name = styled.span`
   width: 90%;
   margin-bottom: 15px;
 `;
-export const FooterPrice = styled.span`
+export const Price = styled.span`
   width: 10%;
 `;

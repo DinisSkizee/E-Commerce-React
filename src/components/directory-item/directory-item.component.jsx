@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 import {
-  Body,
   BackgroundImage,
+  Body,
   DirectoryItemContainer,
 } from "./directory-item.styles";
 

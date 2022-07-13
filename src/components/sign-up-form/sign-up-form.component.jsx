@@ -1,11 +1,10 @@
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import { SignUpContainer, SignUpH2 } from "./sign-up.styles";
+import { SignUpContainer } from "./sign-up-form.styles";
 import { signUpStart } from "../../store/user/user.action";
 
 const defaultFormFields = {
@@ -16,9 +15,9 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
-  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const dispatch = useDispatch();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -52,13 +51,13 @@ const SignUpForm = () => {
 
   return (
     <SignUpContainer>
-      <SignUpH2>Don't have an account?</SignUpH2>
-      <span>Sign Up with your email and password</span>
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
-          required
           type="text"
+          required
           onChange={handleChange}
           name="displayName"
           value={displayName}
@@ -66,8 +65,8 @@ const SignUpForm = () => {
 
         <FormInput
           label="Email"
-          required
           type="email"
+          required
           onChange={handleChange}
           name="email"
           value={email}
@@ -75,8 +74,8 @@ const SignUpForm = () => {
 
         <FormInput
           label="Password"
-          required
           type="password"
+          required
           onChange={handleChange}
           name="password"
           value={password}
@@ -84,13 +83,12 @@ const SignUpForm = () => {
 
         <FormInput
           label="Confirm Password"
-          required
           type="password"
+          required
           onChange={handleChange}
           name="confirmPassword"
           value={confirmPassword}
         />
-
         <Button type="submit">Sign Up</Button>
       </form>
     </SignUpContainer>
