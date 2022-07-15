@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { Category } from "../../store/categories/categories.types";
 import {
   getAuth,
   signInWithRedirect,
@@ -32,8 +33,6 @@ const firebaseConfig = {
   messagingSenderId: "499881558843",
   appId: "1:499881558843:web:21782e5e7873a3dacaed1e",
 };
-
-import { Category } from "../../store/categories/categories.types";
 
 const firebaseApp = initializeApp(firebaseConfig);
 

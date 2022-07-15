@@ -57,10 +57,7 @@ const removeCartItem = (
   );
 };
 
-const clearCartItem = (
-  cartItems: CartItem[],
-  cartItemToClear: CategoryItem
-): CartItem[] =>
+const clearCartItem = (cartItems: CartItem[], cartItemToClear: CartItem) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
 export const setIsCartOpen = withMatcher((isOpen: boolean) =>
@@ -68,28 +65,30 @@ export const setIsCartOpen = withMatcher((isOpen: boolean) =>
 );
 
 // Helper Function
-export const setCartItems = withMatcher(
-  (cartItems: CartItem[]): SetCartItems =>
-    createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
+export const setCartItems = withMatcher((cartItems: CartItem[]) =>
+  createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
 );
 
-export const addItemToCart = withMatcher(
-  (cartItems: CartItem[], itemToAdd: CategoryItem) => {
-    const newCartItems = addCartItem(cartItems, itemToAdd);
-    return setCartItems(newCartItems);
-  }
-);
+export const addItemToCart = (
+  cartItems: CartItem[],
+  itemToAdd: CategoryItem
+) => {
+  const newCartItems = addCartItem(cartItems, itemToAdd);
+  return setCartItems(newCartItems);
+};
 
-export const removeItemFromCart = withMatcher(
-  (cartItems: CartItem[], cartItemToRemove: CartItem) => {
-    const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-    return setCartItems(newCartItems);
-  }
-);
+export const removeItemFromCart = (
+  cartItems: CartItem[],
+  cartItemToRemove: CartItem
+) => {
+  const newCartItems = removeCartItem(cartItems, cartItemToRemove);
+  return setCartItems(newCartItems);
+};
 
-export const clearItemFromCart = withMatcher(
-  (cartItems: CartItem[], cartItemToClear: CartItem) => {
-    const newCartItems = clearCartItem(cartItems, cartItemToClear);
-    return setCartItems(newCartItems);
-  }
-);
+export const clearItemFromCart = (
+  cartItems: CartItem[],
+  cartItemToClear: CartItem
+) => {
+  const newCartItems = clearCartItem(cartItems, cartItemToClear);
+  return setCartItems(newCartItems);
+};
