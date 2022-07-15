@@ -5,11 +5,10 @@ import { CategoryMap } from "./categories.types";
 
 const selectCategoryReducer = (state: {
   categories: CategoriesState;
-}): CategoriesState => state.categories; // This is the first and only thing checked works like a cache
-//                                          preventing the under functions to be executed when they don't need to
+}): CategoriesState => state.categories;
 
 export const selectCategories = createSelector(
-  [selectCategoryReducer], // another value added here, is added down too
+  [selectCategoryReducer],
   (categoriesSlice) => categoriesSlice.categories
 );
 
