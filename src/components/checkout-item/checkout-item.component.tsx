@@ -8,7 +8,7 @@ import {
   removeItemFromCart,
 } from "../../store/cart/cart.action";
 
-import { CartItem } from "../../store/cart/cart.types";
+import { TCartItem } from "../../store/cart/cart.types";
 
 import {
   CheckoutItemContainer,
@@ -21,7 +21,7 @@ import {
 } from "./checkout-item.styles";
 
 type CheckoutItemProps = {
-  cartItem: CartItem;
+  cartItem: TCartItem;
 };
 
 const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
